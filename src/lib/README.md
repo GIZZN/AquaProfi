@@ -16,6 +16,10 @@ DB_SHOW_CONFIG=true            # true/false
 
 # Тестировать подключение при инициализации
 DB_TEST_CONNECTION=true        # true/false (по умолчанию: true)
+
+# Настройки SSL для PostgreSQL
+POSTGRES_SSL=false            # true/false (по умолчанию: false)
+DB_SSL=false                  # альтернативная переменная для отключения SSL
 ```
 
 ## Уровни логирования

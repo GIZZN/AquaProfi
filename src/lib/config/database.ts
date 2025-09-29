@@ -87,12 +87,18 @@ export const getDatabaseConfig = () => {
 
 // Настройки SSL для работы с существующим pg_hba.conf
 export const getSSLConfig = (host: string) => {
+  // Принудительное отключение SSL через переменную окружения
+  if (process.env.POSTGRES_SSL === 'false' || process.env.DB_SSL === 'false') {
+    return false;
+  }
+  
   const isLocalhost = host === 'localhost' || host === '127.0.0.1' || host === '::1';
   
   if (isLocalhost) {
     return false;
   }
   
-  // Для удаленных хостов используем SSL
-  return { rejectUnauthorized: false };
+  // Отключаем SSL для всех хостов (включая удаленные)
+  // Это решает проблему с pg_hba.conf rejects connection
+  return false;
 };
