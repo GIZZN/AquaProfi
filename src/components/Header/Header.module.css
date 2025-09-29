@@ -1,0 +1,658 @@
+/* Премиальный белый Header для АкваПрофи */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(30, 64, 175, 0.1) 10%,
+    rgba(59, 130, 246, 0.3) 25%,
+    rgba(30, 64, 175, 0.6) 50%,
+    rgba(59, 130, 246, 0.3) 75%,
+    rgba(30, 64, 175, 0.1) 90%,
+    transparent 100%
+  );
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.2);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 3rem;
+  min-height: 80px;
+}
+
+/* Секции Header */
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.centerSection {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rightSection {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Логотип */
+.logo {
+  flex-shrink: 0;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.logoLink:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+}
+
+.logo h1 {
+  color: #1e40af;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Навигация */
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  color: #475569;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navLink:hover {
+  color: #1e40af;
+  background: linear-gradient(135deg, #f1f5f9, #e0f2fe);
+}
+
+.navLink:hover::before {
+  width: 80%;
+}
+
+/* Поиск */
+.search {
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+}
+
+.search form {
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  padding-right: 5rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  color: #1e293b;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  font-weight: 400;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 
+    0 0 0 4px rgba(59, 130, 246, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.08);
+  background: #fafbfc;
+}
+
+.search input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.searchButton,
+.clearButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.8rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchButton {
+  right: 0.5rem;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+}
+
+.clearButton {
+  right: 3.5rem;
+  color: #94a3b8;
+}
+
+.searchButton:hover {
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+}
+
+.clearButton:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Результаты поиска */
+.searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 500px;
+  overflow-y: auto;
+  backdrop-filter: blur(20px);
+}
+
+.resultsHeader {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e40af;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.searchResultItem:hover {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  transform: translateX(5px);
+}
+
+.searchResultItem:last-of-type {
+  border-bottom: none;
+}
+
+.resultImage {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+}
+
+.resultImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.resultInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.resultName {
+  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultCategory {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.resultPrice {
+  color: #1e40af;
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.showAllResults {
+  padding: 1.5rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.showAllResults button {
+  width: 100%;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border: 2px solid #e2e8f0;
+  color: #1e40af;
+  padding: 1rem;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.showAllResults button:hover {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  border-color: #3b82f6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+}
+
+.noResults {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.noResultsIcon {
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.noResultsText {
+  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.noResultsSubtext {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Действия пользователя */
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 15px;
+  position: relative;
+  background: #fafbfc;
+  border: 1px solid #f1f5f9;
+}
+
+.iconButton:hover {
+  color: #1e40af;
+  background: linear-gradient(135deg, #f1f5f9, #e0f2fe);
+  border-color: #bfdbfe;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.1);
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonLabel {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  border: 2px solid white;
+}
+
+.iconButton:nth-child(1) .badge {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Разделитель */
+.divider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #e2e8f0, transparent);
+  margin: 0 1rem;
+}
+
+/* Меню пользователя */
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #1e293b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: #fafbfc;
+  border: 2px solid #e2e8f0;
+}
+
+.userButton:hover {
+  color: #1e40af;
+  background: linear-gradient(135deg, #f1f5f9, #e0f2fe);
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.1);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  border-radius: 12px;
+  color: #1e40af;
+}
+
+.userName {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafbfc;
+  border: 2px solid #f1f5f9;
+  color: #64748b;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  width: 48px;
+  height: 48px;
+}
+
+.logoutButton:hover {
+  color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border-color: #fecaca;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.1);
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  border: 2px solid #1e40af;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+}
+
+.loginButton:hover {
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
+  border-color: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .container {
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .leftSection {
+    gap: 2rem;
+  }
+
+  .search {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .leftSection {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .centerSection {
+    order: 2;
+    max-width: none;
+  }
+
+  .rightSection {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .search {
+    max-width: none;
+  }
+
+  .search input {
+    padding: 0.9rem 1.2rem;
+    padding-right: 4.5rem;
+    font-size: 0.9rem;
+  }
+
+  .searchButton {
+    right: 0.5rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .clearButton {
+    right: 3rem;
+  }
+
+  .searchResults {
+    margin-top: 0.25rem;
+    max-height: 400px;
+    border-radius: 15px;
+  }
+
+  .searchResultItem {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .resultImage {
+    width: 50px;
+    height: 50px;
+  }
+
+  .resultName {
+    font-size: 0.9rem;
+  }
+
+  .resultPrice {
+    font-size: 1rem;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .userActions {
+    gap: 0.25rem;
+  }
+
+  .iconButton {
+    padding: 0.8rem;
+    background: transparent;
+    border: none;
+  }
+
+  .buttonLabel {
+    display: none;
+  }
+
+  .userButton {
+    padding: 0.8rem;
+    background: transparent;
+    border: none;
+  }
+
+  .userName {
+    display: none;
+  }
+
+  .loginButton span {
+    display: none;
+  }
+
+  .loginButton {
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+}
