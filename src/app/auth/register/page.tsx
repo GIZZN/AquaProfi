@@ -110,7 +110,7 @@ export default function Register() {
       <div className={styles.container}>
         <div className={styles.formWrapper}>
           <Link href="/" className={styles.logo}>
-            <h1>TechnoShop</h1>
+            <h1>АкваПрофи</h1>
           </Link>
           
           <h2>Регистрация</h2>
