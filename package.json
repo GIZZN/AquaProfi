@@ -10,7 +10,7 @@
     "test-db": "node scripts/test-db.js"
   },
   "dependencies": {
-    "next": "15.3.3",
+    "next": "15.3.8",
     "pavel": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
